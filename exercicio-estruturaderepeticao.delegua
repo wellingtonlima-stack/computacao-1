@@ -1,0 +1,21 @@
+// Escreva um programa em Delégua que leia 3 vezes os seguintes valores:- Nome da pessoa (texto)- Ano de nascimento (inteiro)- Salário (real)- Usa óculos (lógico) Para cada conjunto de respostas, escreva uma mensagem como: - "Adolfo tem 12 anos, ganha R$ 78888 e usa óculos"
+var nome = texto
+constante ano_atual = 2026
+var ano_nascimento: inteiro
+var salario = real
+var usa_oculos: lógico = falso
+var resposta: texto
+var idade = real
+para var i = 1; i <= 3; i = i + 1 {
+    nome = texto(leia("Digite seu nome"))
+    salario = real(leia("Digite seu salário! "))
+    ano_nascimento = inteiro(leia("Digite seu ano de nascimento: "))
+    idade = (ano_atual - ano_nascimento)
+    resposta = leia("Você usa óculos? Responda V ou F")
+    se (resposta == 'V') {
+        usa_oculos = verdadeiro
+        escreva('${nome} tem ${idade} anos, ganha R$ ${salario} e usa óculos')
+    } senão {
+        escreva('${nome} tem ${idade} anos, ganha R$ ${salario} e não usa óculos')
+    }
+}
