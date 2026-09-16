@@ -1,28 +1,34 @@
-//Escreva um programa que receba uma quantidade de alunos (superior a 0).Depois, para cada aluno, receba o nome e a média. Calcule a média da turma. Escreva os nomes dos alunos cuja nota for superior a 90% da média.
+// //Escreva um programa que receba uma quantidade de alunos (superior a 0).Depois, para cada aluno, receba o nome e a média. Calcule a média da turma. Escreva os nomes dos alunos cuja nota for superior a 90% da média.
 
 var nomes = []
 var notas = []
-var media: real
-var media_da_turma: real = 0
-var quantidade_de_alunos: inteiro
+var media = 0
+var media_da_turma = 0
+var quantidade_de_alunos = 0
+var limite90 = 0
+var i = 0
+
 quantidade_de_alunos = inteiro(leia("Digite a quantidade de estudantes"))
-para (var i = 1; i <= quantidade_de_alunos; i = i + 1) {
- 
+
+para (i = 1; i <= quantidade_de_alunos; i = i + 1) {
     nomes.adicionar(leia("Digite o nome do(a) estudante"))
     media = real(leia("Digite a média do(a) estudante"))
     notas.adicionar(media)
     media_da_turma = media_da_turma + media
 }
 
+media_da_turma = media_da_turma / quantidade_de_alunos
+escreva("A média da turma foi ${media_da_turma}")
 para (var i = 1; i <= quantidade_de_alunos; i = i + 1) {
     escreva("Aluno ${i} (${nomes[i-1]}) teve média ${notas[i-1]}")
     se (notas[i - 1] > media_da_turma) {
-        escreva("${nomes[i-1]} teve nota acima da média")
+        escreva("Aluno ${i} teve nota acima da média")
     }
 }
+
 // Cálculo da média da turma e do limite de 90%
-var media_da_turma = media_da_turma / quantidade_de_alunos
-var limite90 = media_da_turma * 0.90
+media_da_turma = media_da_turma / quantidade_de_alunos
+limite90 = media_da_turma * 0.90
 
 escreva("")
 escreva("--- RESULTADOS ---")
@@ -31,7 +37,7 @@ escreva("Corte (90% da média): " + limite90)
 escreva("Alunos com nota superior a 90% da média:")
 
 // Filtragem e exibição dos alunos acima do limite
-para (var i = 0; i < quantidade_de_alunos; i = i + 1) {
+para (i = 0; i < quantidade_de_alunos; i = i + 1) {
     se (notas[i] > limite90) {
         escreva("- " + nomes[i] + " (Média: " + notas[i] + ")")
     }
