@@ -10,11 +10,14 @@ var i = 0
 
 quantidade_de_alunos = inteiro(leia("Digite a quantidade de estudantes"))
 
+se (quantidade_de_alunos == 0) {
+escreva("Nenhum aluno encontrado!")
+} senao {
 para (i = 1; i <= quantidade_de_alunos; i = i + 1) {
-    nomes.adicionar(leia("Digite o nome do(a) estudante"))
-    media = real(leia("Digite a média do(a) estudante"))
-    notas.adicionar(media)
-    media_da_turma = media_da_turma + media
+nomes.adicionar(leia("Digite o nome do(a) estudante"))
+media = real(leia("Digite a média do(a) estudante"))
+notas.adicionar(media)
+media_da_turma = media_da_turma + media
 }
 
 media_da_turma = media_da_turma / quantidade_de_alunos
@@ -27,7 +30,6 @@ para (var i = 1; i <= quantidade_de_alunos; i = i + 1) {
 }
 
 // Cálculo da média da turma e do limite de 90%
-media_da_turma = media_da_turma / quantidade_de_alunos
 limite90 = media_da_turma * 0.90
 
 escreva("")
@@ -41,4 +43,7 @@ para (i = 0; i < quantidade_de_alunos; i = i + 1) {
     se (notas[i] > limite90) {
         escreva("- " + nomes[i] + " (Média: " + notas[i] + ")")
     }
+}
+
+
 }
