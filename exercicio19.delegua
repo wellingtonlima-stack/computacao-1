@@ -1,0 +1,47 @@
+//Escreva um programa em Delégua que leia a quantidade de estudantes de uma turma. Se o usuário digitar algo que não seja um número igual ou inferior a zero, peça para o usuário digitar novamente, até ele(a) digitar um valor válido. Utilize uma estrutura de repetição para isso. Para cada estudante, leia o nome e duas notas (tipo real). Calcule a média ponderada, onde a primeira nota tem peso 3 e a segunda tem peso 4. Calcule a média de todas as médias. Escreva o nome e a média dos estudantes cuja média ponderada for inferior a 5 ou inferior à média de todas as médias.
+
+var nomes = []
+var notas = []
+var media = 0
+var media_da_turma = 0
+var quantidade_de_alunos = 0
+var limite90 = 0
+var i = 0
+var nota1 = 0
+var nota2 = 0
+
+quantidade_de_alunos = inteiro(leia("Digite a quantidade de estudantes"))
+
+enquanto (quantidade_de_alunos <= 0) {
+quantidade_de_alunos = inteiro(leia("Valor inválido. Digite a quantidade de estudantes"))
+}
+
+para (i = 1; i <= quantidade_de_alunos; i = i + 1) {
+nomes.adicionar(leia("Digite o nome do(a) estudante"))
+nota1 = real(leia("Digite a primeira nota do(a) estudante (peso 3)"))
+nota2 = real(leia("Digite a segunda nota do(a) estudante (peso 4)"))
+media = ((nota1 * 3) + (nota2 * 4)) / 7
+notas.adicionar(media)
+media_da_turma = media_da_turma + media
+}
+
+media_da_turma = media_da_turma / quantidade_de_alunos
+escreva("A média da turma foi ${media_da_turma}")
+
+para (var i = 1; i <= quantidade_de_alunos; i = i + 1) {
+escreva("Aluno ${i} (${nomes[i-1]}) teve média ${notas[i-1]}")
+se (notas[i - 1] > media_da_turma) {
+escreva("Aluno ${i} teve nota acima da média")
+}
+}
+
+escreva("")
+escreva("--- RESULTADOS ---")
+escreva("Média geral da turma: " + media_da_turma)
+escreva("Alunos com média inferior a 5 ou inferior à média da turma:")
+
+para (i = 0; i < quantidade_de_alunos; i = i + 1) {
+se (notas[i] < 5 ou notas[i] < media_da_turma) {
+escreva("- " + nomes[i] + " (Média: " + notas[i] + ")")
+}
+}
