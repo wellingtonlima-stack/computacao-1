@@ -1,0 +1,21 @@
+var texto_cintura = leia("Digite a medida da cintura (em metros, ex: 0,80): ")
+var cintura = real(texto_cintura.substituir(",", "."))
+
+var texto_altura = leia("Digite a altura (em metros, ex: 1,75): ")
+var altura = real(texto_altura.substituir(",", "."))
+
+var sapato = inteiro(leia("Digite o número de sapato: "))
+
+var indiceA = cintura * (sapato - (altura * 10))
+var indiceB = (sapato + (altura * 10)) - (cintura * 10)
+
+escreva("O valor do Índice A é: ", indiceA)
+escreva("O valor do Índice B é: ", indiceB)
+
+se (indiceB < indiceA) {
+    escreva("indiceB é menor do que indiceA")
+} senao se (indiceB > indiceA) {
+    escreva("indiceB é maior do que indiceA")
+} senao {
+    escreva("indiceB e indiceA são iguais")
+}
