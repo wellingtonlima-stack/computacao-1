@@ -1,0 +1,36 @@
+constante N = 6
+var soma_medias = 0
+var i
+var nota1
+var nota2
+var nota3
+var media_ponderada
+var media_das_medias
+var acertou = falso
+var palpite
+
+para (i = 0; i < N; i = i + 1) {
+    nota1 = numero(leia("Digite a nota na prova 1 (nota1): "))
+    nota2 = numero(leia("Digite a nota na prova 2 (nota2): "))
+    nota3 = numero(leia("Digite a nota na prova 3 (nota3): "))
+    
+    media_ponderada = (nota1 * 4 + nota2 * 6 + nota3 * 3) / 13
+    escreva("Média ponderada calculada: ", media_ponderada)
+    
+    soma_medias = soma_medias + media_ponderada
+}
+
+media_das_medias = soma_medias / N
+
+enquanto (acertou == falso) {
+    palpite = numero(leia("Qual é o valor da média das médias? "))
+    
+    se (palpite == media_das_medias) {
+        escreva("Parabéns, você é uma pessoa de extrema sorte!")
+        acertou = verdadeiro
+    } senao se (palpite < media_das_medias) {
+        escreva("Valor demais de baixo!")
+    } senao {
+        escreva("Valor demais de alto!")
+    }
+}
